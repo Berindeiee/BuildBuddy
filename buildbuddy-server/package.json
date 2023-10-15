@@ -1,0 +1,16 @@
+{
+  "name": "react-buildbuddy",
+  "version": "0.1.0",
+  "private": true,
+  "module": ".src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --hot run src/index.ts"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
