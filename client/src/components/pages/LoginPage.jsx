@@ -3,9 +3,10 @@ import { Container, TextField, Button, Box, Snackbar } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import ViewPassword from '../atoms/ViewPassword';
-import '../../Styles/login.css';
+import '../../Styles/Login.css';
 import { useNavigate } from 'react-router-dom';
 import { useSnackbar } from '../../context/snackbar.jsx';
+import NavBar from '../organisms/Navbar.jsx';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -23,6 +24,7 @@ const LoginPage = () => {
 
   return (
     <>
+      <NavBar />
       <Container maxWidth="xs">
         <Box className="box"
           display="flex"
@@ -63,7 +65,7 @@ const LoginPage = () => {
 
             <Link to="/register" sx={{ textDecoration: 'none', mt: 2 }}>
               <Typography className="link" variant="body2" align="center" marginTop="1rem">
-                Don't you have an account? Sign up
+                Nu ai cont? Înregistrează-te aici!
               </Typography>
             </Link>
           </form>

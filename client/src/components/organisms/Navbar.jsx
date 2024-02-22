@@ -11,7 +11,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import PetsIcon from '@mui/icons-material/Pets';
 import FilmAutocomplete from '../atoms/FilmAutocomplete';
 import { useNavigate } from 'react-router-dom';
 
@@ -61,12 +60,12 @@ const NavBar = ({ onFilterChange }) => {
             navigate("/");
         } else if (path === 'Logout') {
             deleteAllCookies();
-            navigate("/");
+            navigate("/home");
         } else if (path === 'Adaugă Anunț') {
             navigate("/add");
         }
-        else if (path === 'intro-page') {
-            navigate("/intro-page");
+        else if (path === 'home') {
+            navigate("/home");
         }
         else if (path === 'Postările mele') {
             navigate("/Postarile_mele");
@@ -100,7 +99,7 @@ const NavBar = ({ onFilterChange }) => {
                             variant="h6"
                             noWrap
                             component="a"
-                            onClick={handleNavigation('intro-page')}
+                            onClick={handleNavigation('home')}
                             sx={{
                                 mr: 2,
                                 display: { xs: 'none', md: 'flex' },
@@ -109,6 +108,7 @@ const NavBar = ({ onFilterChange }) => {
                                 letterSpacing: '.1rem', // Ajustat pentru a fi mai puțin spațiat decât monospace.
                                 color: 'inherit',
                                 textDecoration: 'none',
+                                cursor: 'pointer',
                             }}
                         >
                             BuildBuddy
@@ -165,7 +165,7 @@ const NavBar = ({ onFilterChange }) => {
                             variant="h5"
                             noWrap
                             component="a"
-                            onClick={handleNavigation('intro-page')}
+                            onClick={handleNavigation('home')}
                             sx={{
                                 mr: 2,
                                 display: { xs: 'flex', md: 'none' },
@@ -175,6 +175,7 @@ const NavBar = ({ onFilterChange }) => {
                                 letterSpacing: '.1rem',
                                 color: 'inherit',
                                 textDecoration: 'none',
+                                cursor: 'pointer',
                             }}
                         >
                             BuildBuddy
