@@ -21,4 +21,12 @@
     padding-top: 1em;
 }
   
+.loginBackground {
+    padding-top: 64px; /* Ajustează această valoare la înălțimea AppBar-ului */
+    background-image: url('../assets/Background.webp');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: calc(100vh - 64px); /* Scădeți înălțimea AppBar-ului din înălțimea totală */
+  }
   

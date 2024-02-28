@@ -11,6 +11,7 @@ function App() {
       <SnackbarProvider>
         <Routes>
           <Route path="/" element={<Home_page />} />
+          <Route path="/home" element={<Home_page />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
         </Routes>

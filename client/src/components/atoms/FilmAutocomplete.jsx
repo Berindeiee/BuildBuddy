@@ -16,14 +16,14 @@ const predefine = [
     { label: 'SSD' },
 ];
 
-const FilmAutocomplete = ({ onChange }) => {
+const FilmAutocomplete = ({ id, onChange }) => {
 
     return (
         <Autocomplete
             onChange={onChange}
             multiple
             fullWidth
-            id="tags-filled"
+            id={id}
             options={predefine.map((option) => option.label)}
             //defaultValue={[top100Films[1].title]}
             freeSolo

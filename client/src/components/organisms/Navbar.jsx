@@ -13,12 +13,14 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import FilmAutocomplete from '../atoms/FilmAutocomplete';
 import { useNavigate } from 'react-router-dom';
+import {signOut} from 'firebase/auth';
+import {auth} from '../../config/firebase_config';
 
 
 
 
 const pages = [' Listă Componente', 'Consruiește Calculator'];
-const settings = ['Profile', 'Login-register', 'Logout'];
+const settings = ['Profile', 'Login', 'Logout'];
 
 const NavBar = ({ onFilterChange }) => {
     const navigate = useNavigate();
@@ -56,10 +58,11 @@ const NavBar = ({ onFilterChange }) => {
 
 
     const handleNavigation = (path) => () => {
-        if (path === 'Login-register') {
-            navigate("/");
+        if (path === 'Login') {
+            navigate("/login");
         } else if (path === 'Logout') {
-            deleteAllCookies();
+            //teAllCookies();
+            signOut(auth);
             navigate("/home");
         } else if (path === 'Adaugă Anunț') {
             navigate("/add");
@@ -222,7 +225,9 @@ const NavBar = ({ onFilterChange }) => {
                                 marginTop: '20px', // adaugă spațiu în partea de sus
                                 marginBottom: '20px', // adaugă spațiu în partea de jos
                             }}>
-                                <FilmAutocomplete onChange={(event, newValue) => {
+                                <FilmAutocomplete 
+                                id="film-autocomplete-desktop"
+                                onChange={(event, newValue) => {
                                     try {
                                         onFilterChange(newValue)
                                     } catch (error) {
@@ -267,7 +272,9 @@ const NavBar = ({ onFilterChange }) => {
             <Box sx={{
                 display: { xs: 'flex', md: 'none' }, justifyContent: 'center', backgroundColor: 'white', // schimbați culoarea de fundal
             }}>
-                <FilmAutocomplete onChange={(event, newValue) => {
+                <FilmAutocomplete 
+                id="film-autocomplete-mobile"
+                onChange={(event, newValue) => {
                     try {
                         onFilterChange(newValue)
                     } catch (error) {
