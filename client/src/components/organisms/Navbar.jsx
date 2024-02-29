@@ -13,8 +13,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import FilmAutocomplete from '../atoms/FilmAutocomplete';
 import { useNavigate } from 'react-router-dom';
-import {signOut} from 'firebase/auth';
-import {auth} from '../../config/firebase_config';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../config/firebase_config';
+
 
 
 
@@ -85,19 +86,26 @@ const NavBar = ({ onFilterChange }) => {
 
     return (
         <>
-            <AppBar position="sticky">
+            <AppBar
+                position="sticky"
+                sx={{
+                    backgroundColor: 'rgba(34, 95, 191, 0.9)', // schimbați culoarea de fundal
+                }}
+            >
                 <Container maxWidth={false}>
                     <Toolbar disableGutters>
                         <img
-                            src="../../public/pc.png" // Înlocuiți cu calea către imaginea dvs.
+                            src="../../public/pc.png"
                             alt="Logo"
                             style={{
-                                display: { xs: 'none', md: 'flex' },
-                                marginRight: '0.5rem',
-                                width: 'auto', // sau specificați o lățime
-                                height: '50px', // sau specificați o înălțime
+                                height: '50px', // specificați o înălțime
+                                width: 'auto', // pentru a menține proporțiile
+                                margin: '0.5rem',
+                                display: { xs: 'flex', md: 'flex' }, // logo-ul va fi afișat pe toate dimensiunile de ecran
+                                justifyContent: 'center', // centrat pe mobil
                             }}
                         />
+
                         <Typography
                             variant="h6"
                             noWrap
@@ -154,16 +162,6 @@ const NavBar = ({ onFilterChange }) => {
                                 ))}
                             </Menu>
                         </Box>
-                        <img
-                            src="../../public/pc.png" // Înlocuiți cu calea către imaginea dvs.
-                            alt="Logo"
-                            style={{
-                                display: { xs: 'flex', md: 'none' },
-                                marginRight: '0.5rem',
-                                width: 'auto', // sau specificați o lățime
-                                height: '50px', // sau specificați o înălțime
-                            }}
-                        />
                         <Typography
                             variant="h5"
                             noWrap
@@ -215,9 +213,9 @@ const NavBar = ({ onFilterChange }) => {
                             <Box sx={{
                                 flexGrow: 1,
                                 display: { xs: 'none', md: 'flex' },
-                                backgroundColor: 'white', // schimbați culoarea de fundal
+                                backgroundColor: 'rgba(250, 250, 250, 0.8)',
                                 justifyContent: 'flex-start', // centrați conținutul
-                                alignItems: 'center', // centrați conținutul
+                                alignItems: 'flex-end', // centrați conținutul
                                 borderRadius: '7px', // rotunjirea colțurilor
                                 maxWidth: '500px', // limitați lățimea maximă
                                 minWidth: '300px', // limitați lățimea minimă
@@ -225,16 +223,16 @@ const NavBar = ({ onFilterChange }) => {
                                 marginTop: '20px', // adaugă spațiu în partea de sus
                                 marginBottom: '20px', // adaugă spațiu în partea de jos
                             }}>
-                                <FilmAutocomplete 
-                                id="film-autocomplete-desktop"
-                                onChange={(event, newValue) => {
-                                    try {
-                                        onFilterChange(newValue)
-                                    } catch (error) {
-                                        console.log(error)
+                                <FilmAutocomplete
+                                    id="film-autocomplete-desktop"
+                                    onChange={(event, newValue) => {
+                                        try {
+                                            onFilterChange(newValue)
+                                        } catch (error) {
+                                            console.log(error)
+                                        }
                                     }
-                                }
-                                } />
+                                    } />
                             </Box>
                         </Box>
                         <Box sx={{ flexGrow: 0 }}>
@@ -268,20 +266,22 @@ const NavBar = ({ onFilterChange }) => {
                         </Box>
                     </Toolbar>
                 </Container>
-            </AppBar>
+            </AppBar >
             <Box sx={{
-                display: { xs: 'flex', md: 'none' }, justifyContent: 'center', backgroundColor: 'white', // schimbați culoarea de fundal
+                display: { xs: 'flex', md: 'none' },
+                justifyContent: 'center',
+                backgroundColor: 'rgba(250, 250, 250, 0.91)',
             }}>
-                <FilmAutocomplete 
-                id="film-autocomplete-mobile"
-                onChange={(event, newValue) => {
-                    try {
-                        onFilterChange(newValue)
-                    } catch (error) {
-                        console.log(error)
+                <FilmAutocomplete
+                    id="film-autocomplete-mobile"
+                    onChange={(event, newValue) => {
+                        try {
+                            onFilterChange(newValue)
+                        } catch (error) {
+                            console.log(error)
+                        }
                     }
-                }
-                } />
+                    } />
             </Box>
         </>
     );

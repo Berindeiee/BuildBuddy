@@ -3,15 +3,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* background-color: rgb(231, 221, 203); */
-    /* box-shadow: bisque; */
-
-    background-color: rgb(202, 202, 202);
-
-    padding: 35px;
-    margin-top: 25%; 
+    background-color: rgba(202, 202, 202, 0.9);
+    padding: 30px;
+    margin-top: 10%; 
     min-height: 50%; 
-
     border-radius: 15px;
 }
 
@@ -22,11 +17,11 @@
 }
   
 .loginBackground {
-    padding-top: 64px; /* Ajustează această valoare la înălțimea AppBar-ului */
+    
     background-image: url('../assets/Background.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    height: calc(100vh - 64px); /* Scădeți înălțimea AppBar-ului din înălțimea totală */
+    height: 100vh; /* Scădeți înălțimea AppBar-ului din înălțimea totală */
   }
   

@@ -12,6 +12,7 @@ import {
   Check as CheckIcon,
   Visibility as VisibilityIcon,
   VisibilityOff as VisibilityOffIcon,
+  Close as CloseIcon,
 } from "@mui/icons-material";
 
 const PasswordCheck = ({ onPasswordChange, onPasswordValidation }) => {
@@ -22,7 +23,7 @@ const PasswordCheck = ({ onPasswordChange, onPasswordValidation }) => {
   const checkPattern = (pattern) => {
     return pattern.test(password);
   };
-  
+
   const isPasswordValid = () => {
     console.log(password.length);
     return (
@@ -32,7 +33,7 @@ const PasswordCheck = ({ onPasswordChange, onPasswordValidation }) => {
       password.length >= 7 // Lungimea parolei de cel puțin 8 caractere
     );
   };
-  
+
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
@@ -65,7 +66,6 @@ const PasswordCheck = ({ onPasswordChange, onPasswordValidation }) => {
           onChange={handlePasswordChange}
           onFocus={toggleValidationVisibility}
           onBlur={toggleValidationVisibility}
-          sx={{ pr: "40px" }}
           InputProps={{
             endAdornment: (
               <IconButton
@@ -81,27 +81,25 @@ const PasswordCheck = ({ onPasswordChange, onPasswordValidation }) => {
           <List>
             <ListItem>
               <ListItemIcon>
-                <CheckIcon color={checkPattern(/[a-z]/) ? "success" : "error"} />
+                {checkPattern(/[a-z]/) ? <CheckIcon color="success" /> : <CloseIcon color="error" />}
               </ListItemIcon>
               <ListItemText>O literă mică</ListItemText>
             </ListItem>
             <ListItem>
               <ListItemIcon>
-                <CheckIcon color={checkPattern(/[A-Z]/) ? "success" : "error"} />
+                {checkPattern(/[A-Z]/) ? <CheckIcon color="success" /> : <CloseIcon color="error" />}
               </ListItemIcon>
-              <ListItemText>O litră mare</ListItemText>
+              <ListItemText>O literă mare</ListItemText>
             </ListItem>
             <ListItem>
               <ListItemIcon>
-                <CheckIcon color={checkPattern(/\d/) ? "success" : "error"} />
+                {checkPattern(/\d/) ? <CheckIcon color="success" /> : <CloseIcon color="error" />}
               </ListItemIcon>
               <ListItemText>Un număr</ListItemText>
             </ListItem>
             <ListItem>
               <ListItemIcon>
-                <CheckIcon
-                  color={password.length >= 8 ? "success" : "error"}
-                />
+                {password.length >= 8 ? <CheckIcon color="success" /> : <CloseIcon color="error" />}
               </ListItemIcon>
               <ListItemText>Cel puțin 8 caractere</ListItemText>
             </ListItem>

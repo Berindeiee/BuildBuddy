@@ -75,9 +75,8 @@ const LoginPage = () => {
 
   return (
     <>
-
-      <NavBar />
       <div className="loginBackground">
+        <NavBar />
         <Container maxWidth="xs">
           <Box className="box"
             display="flex"

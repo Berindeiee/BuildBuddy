@@ -25,7 +25,7 @@ const FilmAutocomplete = ({ id, onChange }) => {
             fullWidth
             id={id}
             options={predefine.map((option) => option.label)}
-            //defaultValue={[top100Films[1].title]}
+            // sx={{ backgroundColor: 'rgba(250, 250, 250, 0.2)'}}
             freeSolo
             renderTags={(value, getTagProps) =>
                 value.map((option, index) => (

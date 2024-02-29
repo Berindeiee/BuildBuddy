@@ -33,12 +33,11 @@ const ViewPassword = ({ onPasswordChange }) => {
           type={showPassword ? "text" : "password"}
           value={password}
           onChange={handlePasswordChange}
-          sx={{ pr: "40px" }} // adăugat stil personalizat
           InputProps={{
             endAdornment: (
               <IconButton
                 onClick={toggleShowPassword}
-                sx={{ position: "absolute", right: 0 }} // adăugat stil personalizat
+                sx={{ position: "absolute", right: 0 }}
               >
                 {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
               </IconButton>
