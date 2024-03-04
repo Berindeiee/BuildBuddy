@@ -266,23 +266,23 @@ const NavBar = ({ onFilterChange }) => {
                         </Box>
                     </Toolbar>
                 </Container>
-            </AppBar >
-            <Box sx={{
-                display: { xs: 'flex', md: 'none' },
-                justifyContent: 'center',
-                backgroundColor: 'rgba(250, 250, 250, 0.91)',
-            }}>
-                <FilmAutocomplete
-                    id="film-autocomplete-mobile"
-                    onChange={(event, newValue) => {
-                        try {
-                            onFilterChange(newValue)
-                        } catch (error) {
-                            console.log(error)
+                <Box sx={{
+                    display: { xs: 'flex', md: 'none' },
+                    justifyContent: 'center',
+                    backgroundColor: 'rgba(250, 250, 250, 0.8)',
+                }}>
+                    <FilmAutocomplete
+                        id="film-autocomplete-mobile"
+                        onChange={(event, newValue) => {
+                            try {
+                                onFilterChange(newValue)
+                            } catch (error) {
+                                console.log(error)
+                            }
                         }
-                    }
-                    } />
-            </Box>
+                        } />
+                </Box>
+            </AppBar >
         </>
     );
 };

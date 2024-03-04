@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, TextField, Button, Box, Snackbar } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
@@ -72,82 +72,93 @@ const LoginPage = () => {
     }
   };
 
+  useEffect(() => {
+    // Setează stilurile pe body când componenta se montează
+    document.body.style.background = 'url(../assets/Background.webp) no-repeat center center fixed';
+    document.body.style.backgroundSize = 'cover';
+
+    // Curăță stilurile de pe body când componenta se demontează
+    return () => {
+      document.body.style.background = '';
+      document.body.style.backgroundSize = '';
+    };
+  }, []);
+
+
 
   return (
-    <>
-      <div className="loginBackground">
-        <NavBar />
-        <Container maxWidth="xs">
-          <Box className="box"
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <div className='textTitlu'>Login</div>
+    <div className='customBackground'>
+      <NavBar />
+      <Container maxWidth="xs">
+        <Box className="box"
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <div className='textTitlu'>Login</div>
 
-            <form onSubmit={handleSubmit}>
-              <TextField
-                required
-                fullWidth
-                margin="normal"
-                label="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <ViewPassword
-                password={password}
-                onPasswordChange={(e) => setPassword(e.target.value)}
-              />
+          <form onSubmit={handleSubmit}>
+            <TextField
+              required
+              fullWidth
+              margin="normal"
+              label="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <ViewPassword
+              password={password}
+              onPasswordChange={(e) => setPassword(e.target.value)}
+            />
 
-              <Button className='button'
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                sx={{
-                  mt: 3,
-                  borderRadius: '10px',
-                  color: 'black',
-                  backgroundColor: ButtonColr,
-                  border: '1px solid #3f51b5',
-                  '&:hover': { backgroundColor: ButtonHover }
-                }}
-              >
-                Login
-              </Button>
-              <Button
-                className='button'
-                fullWidth
-                variant="contained"
-                startIcon={<GoogleSVGIcon />}
-                sx={{
-                  mt: 2,
-                  borderRadius: '10px',
-                  backgroundColor: ButtonColr,
-                  color: 'black',
-                  border: '3px solid #4285F4',
-                  '&:hover': {
-                    backgroundColor: ButtonHover,
-                    borderColor: '#357ae8',
-                  },
-                  textTransform: 'none',
-                }}
-                onClick={handleGoogleSignIn}
-              >
-                Autentificare cu Google
-              </Button>
+            <Button className='button'
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              sx={{
+                mt: 3,
+                borderRadius: '10px',
+                color: 'black',
+                backgroundColor: ButtonColr,
+                border: '1px solid #3f51b5',
+                '&:hover': { backgroundColor: ButtonHover }
+              }}
+            >
+              Login
+            </Button>
+            <Button
+              className='button'
+              fullWidth
+              variant="contained"
+              startIcon={<GoogleSVGIcon />}
+              sx={{
+                mt: 2,
+                borderRadius: '10px',
+                backgroundColor: ButtonColr,
+                color: 'black',
+                border: '3px solid #4285F4',
+                '&:hover': {
+                  backgroundColor: ButtonHover,
+                  borderColor: '#357ae8',
+                },
+                textTransform: 'none',
+              }}
+              onClick={handleGoogleSignIn}
+            >
+              Autentificare cu Google
+            </Button>
 
-              <Link to="/register" sx={{ textDecoration: 'none', mt: 2 }}>
-                <Typography className="link" variant="body2" align="center" marginTop="1rem">
-                  Nu ai cont? Înregistrează-te aici!
-                </Typography>
-              </Link>
-            </form>
-          </Box>
-        </Container>
-      </div >
-    </>
+            <Link to="/register" sx={{ textDecoration: 'none', mt: 2 }}>
+              <Typography className="link" variant="body2" align="center" marginTop="1rem">
+                Nu ai cont? Înregistrează-te aici!
+              </Typography>
+            </Link>
+          </form>
+        </Box>
+      </Container>
+    </div>
   );
 };
 

@@ -38,77 +38,75 @@ function RegisterPage() {
     };
 
     return (
-        <>
-            <div className="loginBackground">
-                <NavBar />
-                <Container maxWidth="xs">
-                    <Box
-                        className="box"
-                        display="flex"
-                        flexDirection="column"
-                        alignItems="center"
-                        justifyContent="center"
-                    >
-                        <div className='textTitlu'>Înregistrare cont</div>
-                        <form onSubmit={handleSubmit}>
-                            <TextField
-                                required
-                                fullWidth
-                                margin="normal"
-                                label="Username"
-                                value={fullName}
-                                onChange={(e) => setName(e.target.value)}
-                            />
-                            <TextField
-                                required
-                                fullWidth
-                                margin="normal"
-                                label="Email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            <PasswordCheck
-                                onPasswordChange={(e) => setPassword(e.target.value)}
-                                onPasswordValidation={(isValid) => setPasswordValid(isValid)}
-                            />
-                            <TextField
-                                required
-                                fullWidth
-                                margin="normal"
-                                label="Confirmă parola"
-                                type="password"
-                                value={confirmPassword}
-                                onChange={(e) => setConfirmPassword(e.target.value)}
-                            />
-                            {errorMessage && (
-                                <Typography variant="body2" color="error">
-                                    {errorMessage}
-                                </Typography>
-                            )}
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                sx={{
-                                    mt: 3,
-                                    backgroundColor: '#000000',
-                                    '&:hover': { backgroundColor: '#9F9F9F' },
-                                    borderRadius: '10px',
-                                }}
-                            >
-                                Înregistrare
-                            </Button>
-                        </form>
-                        <Link to="/login" sx={{ textDecoration: 'none', mt: 2 }}>
-                            <Typography variant="body2" align="center" marginTop="1rem">
-                                Ai deja un cont? Autentificare
+        <div className="customBackground">
+            <NavBar />
+            <Container maxWidth="xs">
+                <Box
+                    className="box"
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="center"
+                    justifyContent="center"
+                >
+                    <div className='textTitlu'>Înregistrare cont</div>
+                    <form onSubmit={handleSubmit}>
+                        <TextField
+                            required
+                            fullWidth
+                            margin="normal"
+                            label="Username"
+                            value={fullName}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        <TextField
+                            required
+                            fullWidth
+                            margin="normal"
+                            label="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <PasswordCheck
+                            onPasswordChange={(e) => setPassword(e.target.value)}
+                            onPasswordValidation={(isValid) => setPasswordValid(isValid)}
+                        />
+                        <TextField
+                            required
+                            fullWidth
+                            margin="normal"
+                            label="Confirmă parola"
+                            type="password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                        />
+                        {errorMessage && (
+                            <Typography variant="body2" color="error">
+                                {errorMessage}
                             </Typography>
-                        </Link>
-                    </Box>
-                </Container>
-            </div>
-        </>
+                        )}
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            sx={{
+                                mt: 3,
+                                backgroundColor: '#000000',
+                                '&:hover': { backgroundColor: '#9F9F9F' },
+                                borderRadius: '10px',
+                            }}
+                        >
+                            Înregistrare
+                        </Button>
+                    </form>
+                    <Link to="/login" sx={{ textDecoration: 'none', mt: 2 }}>
+                        <Typography variant="body2" align="center" marginTop="1rem">
+                            Ai deja un cont? Autentificare
+                        </Typography>
+                    </Link>
+                </Box>
+            </Container>
+        </div>
     );
 };
 
