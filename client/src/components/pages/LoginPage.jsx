@@ -9,7 +9,7 @@ import { useSnackbar } from '../../context/snackbar.jsx';
 import NavBar from '../organisms/Navbar.jsx';
 import SvgIcon from '@mui/material/SvgIcon';
 import { auth } from '../../config/firebase_config';
-import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { signInWithEmailAndPassword , signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
 
 const LoginPage = () => {
@@ -37,10 +37,10 @@ const LoginPage = () => {
     e.preventDefault();
     console.log(auth?.currentUser?.email);
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword (auth, email, password);
       const user = userCredential.user;
       console.log(user);
-      navigate('/login');
+      navigate('/home');
     }
     catch (error) {
       const errorCode = error.code;
